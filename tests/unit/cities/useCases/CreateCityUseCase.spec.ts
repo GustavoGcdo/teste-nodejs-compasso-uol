@@ -1,10 +1,10 @@
-import { InvalidCityNameError } from './../../../../src/core/cities/errors/InvalidCityNameError';
-import { CreateCityUseCase } from '../../../../src/core/cities/useCases/CreateCityUseCase';
 import { mock } from 'jest-mock-extended';
-import { ICityRepository } from '../../../../src/core/cities/repository/CityRepository';
-import { CreateCityDto } from '../../../../src/core/cities/useCases/CreateCityDto';
 import { City } from '../../../../src/core/cities/domain/City.entity';
+import { ICityRepository } from '../../../../src/core/cities/repository/CityRepository';
+import { CreateCityDto } from '../../../../src/core/cities/useCases/createCity/CreateCityDto';
+import { CreateCityUseCase } from '../../../../src/core/cities/useCases/createCity/CreateCityUseCase';
 import { AppError } from '../../../../src/shared/AppError';
+import { InvalidCityNameError } from './../../../../src/core/cities/errors/InvalidCityNameError';
 
 describe('Caso de uso: CreateCity', () => {
   it('Deve obter sucesso ao tentar cadastrar uma cidade', async () => {
