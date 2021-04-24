@@ -1,5 +1,5 @@
-import { Gender } from './gender';
-import { City } from '../../cities/domain/city';
+import { Gender } from './Gender';
+import { City } from '../../cities/domain/City';
 
 export class Client {
   private completeName: string;
