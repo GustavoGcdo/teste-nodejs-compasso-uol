@@ -1,11 +1,11 @@
-import { InvalidCityNameError } from './../errors/InvalidCityNameError';
-import { UseCase } from '../../../shared/UseCase';
+import { AppError } from '../../../../shared/AppError';
+import { Either, left, right } from '../../../../shared/Either';
+import { UseCase } from '../../../../shared/UseCase';
+import { City } from '../../domain/City.entity';
+import { InvalidCityNameError } from '../../errors/InvalidCityNameError';
+import { InvalidStateNameError } from '../../errors/InvalidStateNameError';
+import { ICityRepository } from '../../repository/CityRepository';
 import { CreateCityDto } from './CreateCityDto';
-import { Either, left, right } from '../../../shared/Either';
-import { InvalidStateNameError } from '../errors/InvalidStateNameError';
-import { City } from '../domain/City.entity';
-import { AppError } from '../../../shared/AppError';
-import { ICityRepository } from '../repository/CityRepository';
 
 export type CreateCityResponse = Either<
   InvalidCityNameError | InvalidStateNameError | AppError.UnexpectedError,
