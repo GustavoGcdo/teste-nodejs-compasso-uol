@@ -1,7 +1,7 @@
-import { InvalidCompleteNameError } from './../../../../src/core/clients/errors/InvalidCompleteNameError';
-import { Client } from '../../../../src/core/clients/domain/Client';
-import { City } from '../../../../src/core/cities/domain/City';
-import { Gender } from '../../../../src/core/clients/domain/Gender';
+import { InvalidCompleteNameError } from '../../../../src/core/clients/errors/InvalidCompleteNameError';
+import { Client } from '../../../../src/core/clients/domain/Client.entity';
+import { City } from '../../../../src/core/cities/domain/City.entity';
+import { Gender } from '../../../../src/core/clients/domain/Gender.enum';
 import { InvalidBirthdateError } from '../../../../src/core/clients/errors/InvalidBirthdateError';
 describe('Teste de entidade:  Client', () => {
   it('Deve retornar uma instancia de Client ao passar dados validos', () => {

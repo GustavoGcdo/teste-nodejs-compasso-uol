@@ -1,5 +1,5 @@
 import { InvalidCityNameError } from '../../../../src/core/cities/errors/InvalidCityNameError';
-import { City } from '../../../../src/core/cities/domain/City';
+import { City } from '../../../../src/core/cities/domain/City.entity';
 import { InvalidStateNameError } from '../../../../src/core/cities/errors/InvalidStateNameError';
 
 describe('Teste de entidade: City', () => {

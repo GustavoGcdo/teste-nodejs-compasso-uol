@@ -1,5 +1,5 @@
-import { Gender } from './Gender';
-import { City } from '../../cities/domain/City';
+import { Gender } from './Gender.enum';
+import { City } from '../../cities/domain/City.entity';
 import { UniqueId } from '../../../shared/UniqueId';
 import { left, Either, right } from '../../../shared/Either';
 import { InvalidCompleteNameError } from '../errors/InvalidCompleteNameError';
