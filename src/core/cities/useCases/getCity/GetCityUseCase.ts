@@ -5,7 +5,7 @@ import { UseCase } from '../../../../shared/UseCase';
 import { City } from '../../domain/City.entity';
 import { ICityRepository } from '../../repository/CityRepository';
 import { GetCityDto } from './GetCityDto';
-import { GetCityParams } from './GetParams';
+import { GetCityParams } from './GetCityParams';
 
 type GetCityResponse = Either<AppError.UnexpectedError, PaginateResult<City>>;
 
