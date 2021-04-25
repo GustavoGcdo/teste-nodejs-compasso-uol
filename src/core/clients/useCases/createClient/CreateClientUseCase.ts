@@ -13,7 +13,7 @@ import { InvalidCompleteNameError } from './../../errors/InvalidCompleteNameErro
 import { CreateClientDto } from './CreateClientDto';
 
 export type CreateClientResponse = Either<
-  CityNotFoundError | InvalidCompleteNameError | InvalidBirthdateError,
+  CityNotFoundError | InvalidCompleteNameError | InvalidBirthdateError | AppError.UnexpectedError,
   Client
 >;
 
