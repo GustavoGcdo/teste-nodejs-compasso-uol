@@ -23,7 +23,7 @@ export class Client {
   public static create(
     props: ClientProps,
     id?: UniqueId
-  ): Either<InvalidCompleteNameError, Client> {
+  ): Either<InvalidCompleteNameError | InvalidBirthdateError, Client> {
     if (!props.completeName || props.completeName.trim().length === 0) {
       return left(new InvalidCompleteNameError());
     }
