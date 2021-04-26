@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import { makeGetCityController } from './factories/GetCityController.factory';
 import { adaptRoute } from './infra/adapter/ExpressAdapter';
 import { makeCreateCityController } from './factories/CreateCityController.factory';
@@ -8,6 +9,7 @@ import { makeGetClientController } from './factories/GetClientController.factory
 import { makeRemoveClientController } from './factories/RemoveClientController.factory';
 import { makeUpdateClientController } from './factories/UpdateClientController.factory';
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 
@@ -20,13 +22,13 @@ app.delete('/clients/:id', adaptRoute(makeRemoveClientController()));
 app.patch('/clients/:id', adaptRoute(makeUpdateClientController()));
 
 mongoose
-  .connect('mongodb://localhost:27017/compass-uol-db', {
+  .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(() => {
     console.log('conected on database');
-    app.listen(3000, () => {
-      console.log('api listen on port', 3000);
+    app.listen(process.env.PORT, () => {
+      console.log('api listen on port', process.env.PORT);
     });
   });
