@@ -1,9 +1,9 @@
-import { Gender } from './Gender.enum';
-import { City } from '../../cities/domain/City.entity';
+import { Either, left, right } from '../../../shared/Either';
 import { UniqueId } from '../../../shared/UniqueId';
-import { left, Either, right } from '../../../shared/Either';
-import { InvalidCompleteNameError } from '../errors/InvalidCompleteNameError';
+import { City } from '../../cities/domain/City.entity';
 import { InvalidBirthdateError } from '../errors/InvalidBirthdateError';
+import { InvalidCompleteNameError } from '../errors/InvalidCompleteNameError';
+import { Gender } from './Gender.enum';
 
 export type ClientProps = {
   completeName: string;
@@ -24,19 +24,19 @@ export class Client {
     props: ClientProps,
     id?: UniqueId
   ): Either<InvalidCompleteNameError | InvalidBirthdateError, Client> {
-    if (!props.completeName || props.completeName.trim().length === 0) {
+    if (!Client.isValidCompleteName(props.completeName)) {
       return left(new InvalidCompleteNameError());
     }
 
-    if (
-      !props.birthdate ||
-      props.birthdate.toString() === 'Invalid Date' ||
-      props.birthdate.getFullYear() >= new Date().getFullYear()
-    ) {
+    if (!Client.isValidBirthdate(props.birthdate)) {
       return left(new InvalidBirthdateError());
     }
 
     return right(new Client(props, id));
+  }
+
+  public get id(): UniqueId {
+    return this._id;
   }
 
   public get age(): number {
@@ -50,15 +50,59 @@ export class Client {
     return this.props.completeName;
   }
 
+  setCompleteName(name: string): Either<InvalidCompleteNameError, null> {
+    if (Client.isValidCompleteName(name)) {
+      this.props.completeName = name;
+      return right(null);
+    }
+
+    return left(new InvalidCompleteNameError());
+  }
+
   public get birthdate(): Date {
     return this.props.birthdate;
+  }
+
+  setBirthdate(date: Date): Either<InvalidBirthdateError, null> {
+    if (Client.isValidBirthdate(date)) {
+      this.props.birthdate = date;
+      return right(null);
+    }
+
+    return left(new InvalidBirthdateError());
   }
 
   public get city(): City {
     return this.props.city;
   }
 
-  public get id(): UniqueId {
-    return this._id;
+  setCity(city: City) {
+    this.props.city = city;
+  }
+
+  public get gender(): Gender {
+    return this.props.gender;
+  }
+
+  setGender(gender: Gender) {
+    this.props.gender = gender;
+  }
+
+  private static isValidCompleteName(name: string): boolean {
+    if (!name || name.trim().length === 0) {
+      return false;
+    }
+    return true;
+  }
+
+  private static isValidBirthdate(date: Date): boolean {
+    if (
+      !date ||
+      date.toString() === 'Invalid Date' ||
+      date.getFullYear() >= new Date().getFullYear()
+    ) {
+      return false;
+    }
+    return true;
   }
 }
