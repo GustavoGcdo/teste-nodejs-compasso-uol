@@ -24,7 +24,7 @@ describe('Caso de uso: GetClient', () => {
 
     const mockClient = Client.create({
       completeName: 'gustavo',
-      birthDate: new Date('1997/04/18'),
+      birthdate: new Date('1997/04/18'),
       city: mockCity,
       gender: Gender.MALE
     }).value as Client;

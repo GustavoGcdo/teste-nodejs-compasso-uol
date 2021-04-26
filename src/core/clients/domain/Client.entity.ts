@@ -8,7 +8,7 @@ import { InvalidBirthdateError } from '../errors/InvalidBirthdateError';
 export type ClientProps = {
   completeName: string;
   gender: Gender;
-  birthDate: Date;
+  birthdate: Date;
   city: City;
 };
 export class Client {
@@ -29,9 +29,9 @@ export class Client {
     }
 
     if (
-      !props.birthDate ||
-      props.birthDate.toString() === 'Invalid Date' ||
-      props.birthDate.getFullYear() >= new Date().getFullYear()
+      !props.birthdate ||
+      props.birthdate.toString() === 'Invalid Date' ||
+      props.birthdate.getFullYear() >= new Date().getFullYear()
     ) {
       return left(new InvalidBirthdateError());
     }
@@ -41,8 +41,24 @@ export class Client {
 
   public get age(): number {
     const actualDateYear = new Date().getFullYear();
-    const birthdateYear = this.props.birthDate.getFullYear();
+    const birthdateYear = this.props.birthdate.getFullYear();
 
     return actualDateYear - birthdateYear;
+  }
+
+  public get completeName(): string {
+    return this.props.completeName;
+  }
+
+  public get birthdate(): Date {
+    return this.props.birthdate;
+  }
+
+  public get city(): City {
+    return this.props.city;
+  }
+
+  public get id(): UniqueId {
+    return this._id;
   }
 }

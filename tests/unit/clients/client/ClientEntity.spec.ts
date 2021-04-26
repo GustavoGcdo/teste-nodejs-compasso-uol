@@ -9,7 +9,7 @@ describe('Teste de entidade:  Client', () => {
 
     const clientOrError = Client.create({
       completeName: 'client 1',
-      birthDate: new Date(1997, 3, 18),
+      birthdate: new Date(1997, 3, 18),
       city: city,
       gender: Gender.MALE
     });
@@ -23,7 +23,7 @@ describe('Teste de entidade:  Client', () => {
 
     const clientOrError = Client.create({
       completeName: '',
-      birthDate: new Date(1997, 3, 18),
+      birthdate: new Date(1997, 3, 18),
       city: city,
       gender: Gender.MALE
     });
@@ -39,7 +39,7 @@ describe('Teste de entidade:  Client', () => {
 
     const clientOrError = Client.create({
       completeName: 'client 1',
-      birthDate: new Date(FUTURE_YEAR, 3, 18),
+      birthdate: new Date(FUTURE_YEAR, 3, 18),
       city: city,
       gender: Gender.MALE
     });
@@ -55,7 +55,7 @@ describe('Teste de entidade:  Client', () => {
 
     const clientOrError = Client.create({
       completeName: 'client 1',
-      birthDate: new Date(1997, 3, 18),
+      birthdate: new Date(1997, 3, 18),
       city: city,
       gender: Gender.MALE
     });
