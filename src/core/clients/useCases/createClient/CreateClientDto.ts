@@ -1,6 +1,6 @@
 export interface CreateClientDto {
     completeName: string;
     gender: 'male' | 'female' | 'other';
-    bithdate: string;
+    birthdate: string;
     cityId: string | number;
 }

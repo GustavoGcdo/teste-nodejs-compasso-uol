@@ -5,8 +5,8 @@ export namespace AppError {
       super(err.toString());
 
       // TODO: LOG WITH SERVICE LOG ERROR
-      // console.log('[AppError]: An unexpected error occurred');
-      // console.error(err);
+      console.log('[AppError]: An unexpected error occurred');
+      console.error(err);
     }
   }
 }

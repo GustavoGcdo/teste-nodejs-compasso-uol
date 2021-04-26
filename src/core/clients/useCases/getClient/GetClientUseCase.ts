@@ -21,7 +21,7 @@ export class GetClientUseCase implements UseCase<GetClientDto, GetClientResponse
     try {
       const { name, id, page, limit } = dto;
 
-      const params: GetClientParams = { name, id: new UniqueId(id) };
+      const params: GetClientParams = { name, id: id ? new UniqueId(id) : undefined };
       const paginateOptions = getPaginateOptions(page, limit);
       const paginateResult = await this.clientRespository.searchPaginate(params, paginateOptions);
 

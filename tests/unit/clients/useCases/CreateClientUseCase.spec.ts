@@ -16,7 +16,7 @@ describe('Caso de uso: CreateClient', () => {
     const useCase = new CreateClientUseCase(mockCityRepo, mockClientRepo);
 
     const dto: CreateClientDto = {
-      bithdate: '1997/04/18',
+      birthdate: '1997/04/18',
       cityId: 'mockCityid',
       completeName: 'Gustavo Candido de Oliveira',
       gender: 'male'
@@ -37,7 +37,7 @@ describe('Caso de uso: CreateClient', () => {
     const useCase = new CreateClientUseCase(mockCityRepo, mockClientRepo);
 
     const dto: CreateClientDto = {
-      bithdate: '1997/04/18',
+      birthdate: '1997/04/18',
       cityId: 'non-existing-city',
       completeName: 'Gustavo Candido de Oliveira',
       gender: 'male'
@@ -57,7 +57,7 @@ describe('Caso de uso: CreateClient', () => {
     const useCase = new CreateClientUseCase(mockCityRepo, mockClientRepo);
 
     const dto: CreateClientDto = {
-      bithdate: 'datainvalida',
+      birthdate: 'datainvalida',
       cityId: 'mockCityid',
       completeName: 'Gustavo Candido de Oliveira',
       gender: 'male'
@@ -77,7 +77,7 @@ describe('Caso de uso: CreateClient', () => {
     const useCase = new CreateClientUseCase(mockCityRepo, mockClientRepo);
 
     const dto: CreateClientDto = {
-      bithdate: '1997/04/18',
+      birthdate: '1997/04/18',
       cityId: 'mockCityid',
       completeName: 'Gustavo Candido de Oliveira',
       gender: 'male'

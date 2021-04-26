@@ -23,7 +23,7 @@ export class RemoveClientUseCase implements UseCase<RemoveClientDto, RemoveClien
         return left(new ClientNotFoundError());
       }
 
-      await this.clientRespository.remove(foundClient.id)
+      await this.clientRespository.remove(foundClient.id);
 
       return right(null);
     } catch (error) {

@@ -35,7 +35,7 @@ export class CreateClientUseCase implements UseCase<CreateClientDto, CreateClien
       }
 
       const clientOrError = Client.create({
-        birthdate: new Date(dto.bithdate),
+        birthdate: new Date(dto.birthdate),
         city: foundCity,
         completeName: dto.completeName,
         gender: dto.gender as Gender

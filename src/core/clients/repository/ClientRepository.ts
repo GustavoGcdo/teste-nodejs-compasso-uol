@@ -4,12 +4,12 @@ import { Client } from '../domain/Client.entity';
 import { GetClientParams } from '../useCases/getClient/GetClientParams';
 
 export interface IClientRepository {
-  update(updatedClientOrError: Client): Promise<Client>;
+  update(client: Client): Promise<Client>;
   remove(id: UniqueId): Promise<void>;
   findById(id: UniqueId): Promise<Client>;
   searchPaginate(
     params: GetClientParams,
-    paginateOptions: PaginateOptions
+    options: PaginateOptions
   ): Promise<PaginateResult<Client>>;
 
   create(newClient: Client): Promise<Client>;

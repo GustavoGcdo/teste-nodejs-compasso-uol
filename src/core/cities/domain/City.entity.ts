@@ -31,6 +31,10 @@ export class City {
     return right(new City(props, id));
   }
 
+  public get id(): UniqueId {
+    return this._id;
+  }
+
   public get name(): string {
     return this.props.name;
   }
